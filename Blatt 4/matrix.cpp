@@ -17,7 +17,7 @@ int main() {
 void matrixIsAGoodMovie(double neo[3][3])	{
 
 	std::ifstream myfile;
-	std::string file = "neo.txt";
+	std::string file = "neo.txt";	//program can be edited to accept command-line arguments, (argv[1] etc...)
 	myfile.open(file.c_str());
 
 	if(!myfile)

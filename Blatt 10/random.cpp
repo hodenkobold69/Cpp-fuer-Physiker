@@ -1,6 +1,7 @@
 #include<iostream>
 #include<cmath>
 #include<ctime>
+#include<cstdlib>
 
 class normal_generator	{	//small class names suck
 
@@ -20,6 +21,7 @@ double normal_generator::get()	{
 	}
 
 	double s, v1, v2;
+
 	do {
 
 		v1=2.0*rand()/(double)RAND_MAX - 1., v2=2.0*rand()/(double)RAND_MAX - 1.;
@@ -35,9 +37,10 @@ double normal_generator::get()	{
 int main()	{
 
 	srand((unsigned int) time(0));
+
 	normal_generator gen(0);
 
-	int N = pow(10, 8.);
+	int N = pow(10, 4.);
 
 	double* X= new double[N];
 
@@ -63,7 +66,7 @@ int main()	{
 
 		for(unsigned j=0; j<3; j++)	{
 
-			if(X[i] < (std*(j+1)))
+			if(abs(X[i]) < (std*(j+1)))
 				sigmas[j]++;
 		}
 	}

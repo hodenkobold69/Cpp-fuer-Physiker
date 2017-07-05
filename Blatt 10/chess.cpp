@@ -2,6 +2,7 @@
 #include <cstdlib>
 
 const int size = 8;
+int solutions=0;
 
 bool isTakeable(int testRow, int testCol, int queen[])	{
 
@@ -42,8 +43,7 @@ void print(int fullRows, int queen[])
 		}
 
 	std::cout << std::endl;
-
-    }
+}
 }
 
 void placeQueen(int row, int queen[])	{
@@ -56,7 +56,8 @@ void placeQueen(int row, int queen[])	{
 
   		    if(row==size)	{
 
-    				std::cout << "Found solution!" << std::endl;
+    				std::cout << std::endl << "Found solution!" << std::endl;
+            solutions++;
     				print(size, queen);
   		    }
   		    else placeQueen(row+1, queen);
@@ -68,4 +69,5 @@ int main( void)
 {
     int queen[size+1];
     placeQueen(1, queen);
+    std::cout << "Solutions: " << solutions << std::endl;
 }

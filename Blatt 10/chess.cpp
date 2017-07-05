@@ -7,15 +7,17 @@ bool isTakeable(int testRow, int testCol, int queen[])	{
 
     for(unsigned row=1; row<testRow; ++row)	{
 
-		if(testCol==queen[row])
-			return true;
+      //test vertically
+  		if(testCol==queen[row])
+  			return true;
 
-		int dRow=testRow-row;
-		int dCol=testCol-queen[row];
+      //test diagonally
+  		int dRow=testRow-row;
+  		int dCol=testCol-queen[row];
 
-		if(abs(dRow)==abs(dCol))
-			return true;
-	    }
+  		if(abs(dRow)==abs(dCol))
+  			return true;
+    }
 
 	return false;
 }
@@ -48,18 +50,17 @@ void placeQueen(int row, int queen[])	{
 
     for(int col=1; col<=size; ++col)	{
 
-		if(!isTakeable(row, col, queen))	{
+  		if(!isTakeable(row, col, queen))	{
 
-		    queen[row] = col;
+  		    queen[row] = col;
 
-		    if(row==size)	{
+  		    if(row==size)	{
 
-				std::cout << "Found solution!" << std::endl;
-				print(size, queen);
-		    }
-		    else
-				placeQueen(row+1, queen);
-		}
+    				std::cout << "Found solution!" << std::endl;
+    				print(size, queen);
+  		    }
+  		    else placeQueen(row+1, queen);
+  		}
     }
 }
 
